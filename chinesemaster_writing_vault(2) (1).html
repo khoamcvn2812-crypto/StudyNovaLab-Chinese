@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChineseMaster Writing Vault — Kho bài viết tiếng Trung</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#10d4a0;--b:#60a5fa;--p:#a78bfa;--y:#fbbf24;--r:#f87171;--o:#fb923c;
+  --bg0:#050915;--bg1:#0b1426;--bg2:#101b31;--bg3:#182946;--bg4:#223a61;
+  --bd:#31486d;--bd2:#54709b;--t1:#fff;--t2:#dbe8f7;--t3:#b7c8dc;--t4:#91a8c2;
+  --glass:rgba(14,26,46,.78);--glass-bd:rgba(205,225,255,.16);
+  --shadow:0 12px 36px rgba(0,0,0,.24);--radius:22px;
+}
+.light{
+  --bg0:#f0f4f8;--bg1:#fff;--bg2:#f8fafc;--bg3:#e8f0fe;--bg4:#dde6f5;
+  --bd:#dde6f5;--bd2:#c5d5ea;--t1:#0f1a2e;--t2:#334155;--t3:#64748b;--t4:#94a3b8;
+  --glass:rgba(255,255,255,.78);--glass-bd:rgba(15,23,42,.09);--shadow:0 12px 30px rgba(15,23,42,.08);
+}
+html,body{font-family:"Plus Jakarta Sans","Manrope",Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg0);color:var(--t1);min-height:100vh;line-height:1.55;font-weight:600;letter-spacing:-.1px}
+body:not(.light){background:radial-gradient(circle at top right,rgba(16,212,160,.10),transparent 34%),radial-gradient(circle at bottom left,rgba(167,139,250,.11),transparent 35%),var(--bg0)}
+button,input,select,textarea{font:inherit}
+a{color:inherit;text-decoration:none}
+#app{width:100%;max-width:none;margin:0;padding:20px 16px 38px;position:relative;z-index:2}
+.orb{position:fixed;border-radius:50%;filter:blur(85px);opacity:.16;pointer-events:none;z-index:0}.light .orb{opacity:.06}
+.orb1{width:560px;height:560px;background:var(--g);top:-180px;right:-110px}.orb2{width:500px;height:500px;background:var(--p);left:-150px;bottom:-120px}.orb3{width:320px;height:320px;background:var(--b);top:35%;left:40%}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--glass);border:1px solid var(--glass-bd);border-radius:26px;padding:13px 18px;margin-bottom:14px;box-shadow:var(--shadow);backdrop-filter:blur(20px);flex-wrap:wrap}
+.logo{font-size:21px;font-weight:950;background:linear-gradient(135deg,#10d4a0,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.6px}
+.top-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.pill,.theme{height:40px;border-radius:99px;border:1px solid var(--glass-bd);background:rgba(255,255,255,.05);color:var(--t2);display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:0 13px;font-size:12px;font-weight:900;cursor:pointer;transition:.2s}.theme{width:40px;padding:0;border-radius:50%;font-size:18px}.pill:hover,.theme:hover{background:var(--bg3);color:var(--t1);transform:translateY(-1px)}
+.pill.green{color:#34d399;border-color:rgba(16,212,160,.35);background:rgba(16,212,160,.10)}.pill.blue{color:#60a5fa;border-color:rgba(96,165,250,.35);background:rgba(96,165,250,.10)}.pill.purple{color:#c084fc;border-color:rgba(167,139,250,.35);background:rgba(167,139,250,.10)}
+nav{display:flex;gap:6px;background:var(--glass);border:1px solid var(--glass-bd);border-radius:24px;padding:7px;margin-bottom:20px;box-shadow:var(--shadow);backdrop-filter:blur(20px);flex-wrap:wrap}.tab{flex:1;min-width:105px;border:0;background:transparent;color:var(--t3);border-radius:17px;padding:10px 10px;font-size:12.5px;font-weight:900;cursor:pointer;transition:.2s}.tab:hover{background:var(--bg3);color:var(--t1)}.tab.active{background:linear-gradient(135deg,rgba(16,212,160,.20),rgba(167,139,250,.16));color:var(--t1);border:1px solid rgba(16,212,160,.28)}
+.page{display:none}.page.active{display:block;animation:fadeUp .22s ease}@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.stat{background:var(--glass);border:1px solid var(--glass-bd);border-radius:24px;padding:18px;box-shadow:var(--shadow);backdrop-filter:blur(16px)}.stat .icon{font-size:24px;margin-bottom:8px}.stat .label{font-size:11px;color:var(--t3);font-weight:950;text-transform:uppercase;letter-spacing:.7px}.stat .val{font-size:30px;font-weight:950;line-height:1.1}.stat .sub{font-size:11px;color:var(--t4);margin-top:3px}.section{background:var(--glass);border:1px solid var(--glass-bd);border-radius:24px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow);backdrop-filter:blur(16px)}.sec-title{font-size:11px;color:var(--t3);font-weight:950;text-transform:uppercase;letter-spacing:.85px;margin-bottom:14px;display:flex;align-items:center;gap:8px;justify-content:space-between}.muted{color:var(--t3);font-size:12.5px}.mini{font-size:11px;color:var(--t4)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.form-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}.form-1{margin-bottom:12px}label{display:block;font-size:12px;color:var(--t3);font-weight:900;margin-bottom:6px}input,select,textarea{width:100%;border:1.5px solid rgba(178,205,240,.26);border-radius:15px;background:rgba(12,25,46,.92);color:var(--t1);outline:none;padding:11px 13px;font-size:13.5px;font-weight:700;transition:.2s}.light input,.light select,.light textarea{background:#fff;color:var(--t1);border-color:#d5e0ef}textarea{min-height:95px;resize:vertical;line-height:1.65}textarea.big{min-height:260px}input::placeholder,textarea::placeholder{color:#9fb4cc;opacity:1}input:focus,select:focus,textarea:focus{border-color:#34d399;box-shadow:0 0 0 4px rgba(16,212,160,.13)}select option{background:var(--bg2);color:var(--t1)}
+.btn{border:1.5px solid transparent;border-radius:17px;padding:10px 16px;font-size:13px;font-weight:950;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.2s;color:#fff}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.22)}.btn:active{transform:scale(.98)}.btn-green{background:linear-gradient(135deg,#10d4a0,#0ea5e9)}.btn-blue{background:linear-gradient(135deg,#3b82f6,#60a5fa)}.btn-purple{background:linear-gradient(135deg,#8b5cf6,#c084fc)}.btn-amber{background:linear-gradient(135deg,#f59e0b,#fbbf24)}.btn-red{background:linear-gradient(135deg,#ef4444,#f87171)}.btn-default{background:var(--bg3);color:var(--t1);border-color:var(--bd)}.btn-sm{padding:6px 11px;border-radius:12px;font-size:12px}
+.msg{display:none;margin-top:10px;padding:10px 13px;border-radius:14px;font-size:12.5px;font-weight:900}.msg.ok{display:block;background:rgba(16,212,160,.13);color:#34d399;border:1px solid rgba(16,212,160,.30)}.msg.no{display:block;background:rgba(239,68,68,.12);color:#f87171;border:1px solid rgba(239,68,68,.25)}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.filter-row input,.filter-row select{width:auto;max-width:190px;flex:1 1 145px;padding:9px 11px;border-radius:13px;font-size:12.5px}.list{display:flex;flex-direction:column;gap:10px}.card{background:rgba(255,255,255,.045);border:1px solid var(--glass-bd);border-radius:20px;padding:15px;transition:.2s}.light .card{background:#fff}.card:hover{border-color:var(--bd2);transform:translateX(2px)}.card-head{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}.title{font-size:15.5px;font-weight:950;color:var(--t1)}.snippet{font-size:12.5px;color:var(--t3);margin-top:7px;line-height:1.65;white-space:pre-wrap;max-height:88px;overflow:hidden}.tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.tag{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:950;border:1px solid rgba(96,165,250,.25);background:rgba(96,165,250,.12);color:#60a5fa}.tag.t1{color:#34d399;background:rgba(16,212,160,.12);border-color:rgba(16,212,160,.25)}.tag.t2{color:#c084fc;background:rgba(167,139,250,.12);border-color:rgba(167,139,250,.25)}.tag.warn{color:#fbbf24;background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.25)}.tag.red{color:#f87171;background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.25)}
+.actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.split{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.progress{height:10px;background:var(--bg3);border:1px solid var(--bd);border-radius:99px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#10d4a0,#60a5fa);border-radius:99px;transition:.5s}.barrow{display:flex;align-items:center;gap:10px;margin:8px 0}.barlabel{min-width:112px;text-align:right;color:var(--t3);font-size:12px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.barbox{flex:1;height:22px;border-radius:9px;background:var(--bg3);border:1px solid var(--bd);overflow:hidden}.barfill{height:100%;background:linear-gradient(90deg,#8b5cf6,#60a5fa);display:flex;align-items:center;padding-left:8px;color:#fff;font-size:11px;font-weight:950}
+.editor-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}.tiny-stat{background:var(--bg3);border:1px solid var(--bd);border-radius:14px;padding:10px;text-align:center}.tiny-stat b{display:block;font-size:17px}.tiny-stat span{font-size:10px;color:var(--t4);font-weight:950;text-transform:uppercase}.vocab-box{max-height:340px;overflow:auto;padding-right:4px}.vocab-item{padding:11px 12px;border-radius:16px;background:var(--bg3);border:1px solid var(--bd);margin-bottom:8px}.vocab-term{font-size:13px;font-weight:950;color:var(--t1)}.vocab-def{font-size:12px;color:var(--t3);margin-top:3px}.vocab-ex{font-size:11.5px;color:var(--t4);font-style:italic;margin-top:4px}.hit{outline:2px solid rgba(16,212,160,.55)}
+.correction-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.wrong{color:#f87171;font-weight:950}.right{color:#34d399;font-weight:950}.check-item{border-radius:16px;border:1px solid var(--bd);background:var(--bg3);padding:12px;margin-bottom:8px}.check-title{font-size:12.5px;font-weight:950;margin-bottom:4px}.check-text{font-size:12px;color:var(--t3)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.50);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;z-index:80;padding:16px}.modal.open{display:flex}.modal-box{width:min(860px,100%);max-height:88vh;overflow:auto;background:var(--bg1);border:1px solid var(--glass-bd);border-radius:26px;box-shadow:0 30px 80px rgba(0,0,0,.45)}.modal-head{display:flex;align-items:center;justify-content:space-between;padding:15px 18px;border-bottom:1px solid var(--glass-bd);background:linear-gradient(135deg,rgba(16,212,160,.12),rgba(167,139,250,.08));position:sticky;top:0}.modal-body{padding:18px}.x{width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:var(--t3);cursor:pointer;font-weight:950}.x:hover{color:#f87171;background:rgba(239,68,68,.15)}
+.empty{padding:28px;text-align:center;color:var(--t3);border:1px dashed var(--bd2);border-radius:20px;background:rgba(255,255,255,.03)}
+@media(max-width:760px){.grid4,.editor-stats{grid-template-columns:repeat(2,1fr)}.split,.two,.form-row,.form-3,.correction-grid{grid-template-columns:1fr}.card-head{flex-direction:column}.actions{justify-content:flex-start}.barlabel{text-align:left;min-width:80px}.topbar{align-items:flex-start}.top-actions{width:100%}.pill{flex:1}.filter-row input,.filter-row select{max-width:none}.tab{min-width:130px}}
+
+/* ================= STUDYNOVA PRODUCT UPGRADE ================= */
+:root{--sn-grad:linear-gradient(135deg,#10d4a0,#a78bfa 55%,#60a5fa);--sn-danger:#f87171}
+.sn-brand{display:flex;align-items:center;gap:10px}
+.sn-logo-svg{width:36px;height:36px;border-radius:14px;box-shadow:0 10px 24px rgba(16,212,160,.18);flex:0 0 auto}
+.logo,.sn-logo-text{display:inline-flex;align-items:center;gap:9px}
+.sn-splash{position:fixed;inset:0;z-index:9999;background:radial-gradient(circle at top right,rgba(16,212,160,.16),transparent 38%),radial-gradient(circle at bottom left,rgba(167,139,250,.18),transparent 36%),#050915;display:flex;align-items:center;justify-content:center;transition:opacity .45s ease,visibility .45s ease}
+.sn-splash.hide{opacity:0;visibility:hidden}
+.sn-splash-card{width:min(420px,92vw);padding:28px;border-radius:30px;background:rgba(14,26,46,.76);border:1px solid rgba(205,225,255,.16);box-shadow:0 30px 90px rgba(0,0,0,.42);text-align:center;backdrop-filter:blur(20px)}
+.sn-splash-card .sn-logo-svg{width:72px;height:72px;margin-bottom:12px}
+.sn-splash-title{font-size:30px;font-weight:950;letter-spacing:-.8px;background:var(--sn-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sn-splash-sub{color:#b7c8dc;font-size:13px;margin-top:7px;font-weight:750}
+.sn-loader{height:9px;border-radius:99px;background:rgba(255,255,255,.09);overflow:hidden;margin-top:18px}
+.sn-loader span{display:block;height:100%;width:42%;border-radius:99px;background:var(--sn-grad);animation:snLoad 1.15s ease-in-out infinite}
+@keyframes snLoad{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}
+.sn-landing{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-bottom:18px}
+.sn-hero,.sn-module-card{background:var(--glass);border:1px solid var(--glass-bd);border-radius:28px;padding:24px;box-shadow:0 12px 36px rgba(0,0,0,.24);backdrop-filter:blur(18px)}
+.sn-hero-kicker{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:99px;background:rgba(16,212,160,.12);border:1px solid rgba(16,212,160,.30);color:#34d399;font-size:12px;font-weight:950;margin-bottom:12px}
+.sn-hero h1{font-size:clamp(34px,5vw,58px);line-height:1.02;font-weight:950;letter-spacing:-1.8px;margin-bottom:12px}
+.sn-hero h1 span{background:var(--sn-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sn-hero p{color:var(--t2);font-size:14.5px;line-height:1.75;max-width:680px}
+.sn-hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.sn-module-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sn-module-card{padding:16px;border-radius:22px}
+.sn-module-icon{font-size:26px;margin-bottom:8px}
+.sn-module-title{font-size:14px;font-weight:950;color:var(--t1)}
+.sn-module-desc{font-size:12px;color:var(--t3);line-height:1.6;margin-top:5px}
+.sn-top-link,.sn-user-btn,.sn-ai-btn{border:1px solid rgba(96,165,250,.30)!important;background:linear-gradient(135deg,rgba(96,165,250,.15),rgba(14,165,233,.08))!important;color:#60a5fa!important;text-decoration:none!important}
+.sn-user-btn{color:#34d399!important;border-color:rgba(16,212,160,.30)!important;background:linear-gradient(135deg,rgba(16,212,160,.15),rgba(14,165,233,.08))!important}
+.sn-ai-btn{color:#c084fc!important;border-color:rgba(167,139,250,.30)!important;background:linear-gradient(135deg,rgba(167,139,250,.16),rgba(96,165,250,.08))!important}
+.sn-modal{position:fixed;inset:0;z-index:4000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.50);backdrop-filter:blur(5px);padding:16px}
+.sn-modal.open{display:flex}
+.sn-modal-box{width:min(780px,100%);max-height:90vh;overflow:auto;background:var(--bg1);border:1px solid var(--glass-bd);border-radius:28px;box-shadow:0 30px 90px rgba(0,0,0,.45)}
+.sn-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-bottom:1px solid var(--glass-bd);background:linear-gradient(135deg,rgba(16,212,160,.12),rgba(167,139,250,.08));position:sticky;top:0;z-index:2}
+.sn-modal-title{font-weight:950;color:var(--t1)}
+.sn-modal-body{padding:18px}
+.sn-close{width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:var(--t3);font-weight:950;cursor:pointer}
+.sn-close:hover{color:#f87171;background:rgba(239,68,68,.15)}
+.sn-auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.sn-auth-status{font-size:12.5px;color:var(--t3);line-height:1.6;background:var(--bg3);border:1px solid var(--bd);border-radius:16px;padding:12px;margin-bottom:12px}
+.sn-firebase-warning{display:none;color:#fbbf24;background:rgba(251,191,36,.10);border:1px solid rgba(251,191,36,.28);border-radius:16px;padding:12px;margin-bottom:12px;font-size:12.5px;line-height:1.65}
+.sn-firebase-warning.show{display:block}
+.sn-ai-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.sn-ai-pane{display:none}.sn-ai-pane.active{display:block}
+.sn-ai-output{min-height:160px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;line-height:1.6}
+.sn-small{font-size:12px;color:var(--t4);line-height:1.6}
+.sn-unified-nav-note{font-size:11.5px;color:var(--t4);margin-top:8px}
+@media(max-width:760px){
+  #app{padding:14px 10px 90px!important}
+  .topbar{border-radius:22px!important;padding:12px!important}
+  .topbar-right,.top-actions{width:100%;display:grid!important;grid-template-columns:1fr 1fr;gap:8px!important}
+  .ai-pill,.backup-pill,.pill{justify-content:center;min-height:40px}
+  nav{position:sticky;top:8px;z-index:40;overflow-x:auto;flex-wrap:nowrap!important;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  .tab{min-width:126px!important;flex:0 0 auto!important}
+  .sn-landing{grid-template-columns:1fr}
+  .sn-module-grid{grid-template-columns:1fr}
+  .sn-auth-grid{grid-template-columns:1fr}
+  .sn-hero{padding:20px}
+}
+/* ================= END STUDYNOVA PRODUCT UPGRADE ================= */
+
+
+
+/* ===== STUDYNOVA DESKTOP FULL-SCREEN LAYOUT PATCH =====
+   Desktop: use the whole browser width instead of the old centered 1180px container.
+   Mobile/tablet keeps the existing compact responsive layout.
+*/
+@media (min-width: 901px){
+  html, body{width:100%; overflow-x:hidden;}
+  #app{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:24px 32px 42px !important;
+  }
+  .topbar, nav, .section, .sn-hero, .sn-unified-nav{width:100%;}
+  .grid4{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
+  .split{grid-template-columns:minmax(0,1.35fr) minmax(360px,.65fr) !important;}
+  .two{grid-template-columns:1fr 1fr !important;}
+  .filter-row input,.filter-row select{max-width:none;}
+}
+@media (min-width: 1500px){
+  #app{padding-left:44px !important;padding-right:44px !important;}
+  #essayList.list,#recentList.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  #correctionList.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .card:hover{transform:translateY(-2px);}
+}
+@media (max-width: 900px){
+  #app{max-width:100% !important;width:100% !important;}
+}
+/* ===== END FULL-SCREEN PATCH ===== */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap');
+html,body,button,input,select,textarea{font-family:'Plus Jakarta Sans','Noto Sans SC',system-ui,sans-serif}
+.zh,.zh-text{font-family:'Noto Sans SC','Microsoft YaHei',sans-serif}
+.zh-text{font-size:17px;line-height:1.95;letter-spacing:.25px}
+.pinyin-text{color:#7dd3fc;font-size:13px;line-height:1.8}
+.translation-text{color:var(--t2);font-size:13px;line-height:1.75}
+.score-ring{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#10d4a0 var(--score,0%),var(--bg3) 0);position:relative;flex:0 0 auto}
+.score-ring:before{content:'';position:absolute;inset:7px;border-radius:50%;background:var(--bg1)}
+.score-ring b{position:relative;z-index:1;font-size:18px}
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+@media(max-width:760px){.quick-grid{grid-template-columns:1fr}.zh-text{font-size:16px}}
+</style>
+<meta name="theme-color" content="#050915">
+</head>
+<body>
+<div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+<div id="app">
+  <div class="topbar">
+    <div>
+      <div class="logo">✦ ChineseMaster 写作库</div>
+      <div class="muted">Kho lưu bài viết tiếng Trung · chữ Hán · pinyin · bản dịch · chữa lỗi</div>
+    </div>
+    <div class="top-actions">
+      <a class="pill green" href="index.html" target="_self" title="Quay lại ChineseMaster">🀄 ChineseMaster</a>
+      <button class="pill purple" onclick="openAI()">🤖 AI 写作助手</button>
+      <button class="pill blue" onclick="exportData()">⬇ Sao lưu</button>
+      <button class="pill purple" onclick="document.getElementById('import-data').click()">⬆ Khôi phục</button>
+      <button class="theme" onclick="toggleTheme()" id="themeBtn">🌙</button>
+      <input type="file" id="import-data" accept=".json,application/json" style="display:none" onchange="importData(event)">
+    </div>
+  </div>
+
+  <nav>
+    <button class="tab active" onclick="goTo('home')">🏠 Trang chủ</button>
+    <button class="tab" onclick="goTo('dash')">📊 Tổng quan</button>
+    <button class="tab" onclick="goTo('write')">✍️ Lưu bài</button>
+    <button class="tab" onclick="goTo('library')">🗂 Kho bài</button>
+    <button class="tab" onclick="goTo('corrections')">🧯 Sổ lỗi</button>
+    <button class="tab" onclick="goTo('vocab')">🔗 ChineseMaster</button>
+    <button class="tab" onclick="goTo('settings')">⚙️ Cài đặt</button>
+  </nav>
+
+  <div id="page-home" class="page active">
+    <div class="sn-landing">
+      <div class="sn-hero">
+        <div class="sn-hero-kicker">🀄 ChineseMaster Writing Vault</div>
+        <h1>Viết tiếng Trung, lưu tiến bộ trong <span>một kho riêng</span>.</h1>
+        <p>Lưu bài theo chủ đề và cấp độ HSK; theo dõi số chữ Hán; thêm pinyin, bản dịch và bản sửa; ghi lại từng lỗi sai để luyện lại; đồng thời quét từ vựng đã học trong ChineseMaster.</p>
+        <div class="sn-hero-actions">
+          <a class="btn btn-default" href="index.html" target="_self">🀄 Mở ChineseMaster</a>
+          <button class="btn btn-green" onclick="newEssay();goTo('write')">✍️ Lưu bài mới</button>
+          <button class="btn btn-blue" onclick="goTo('corrections')">🧯 Mở sổ lỗi</button>
+          <button class="btn btn-purple" onclick="goTo('vocab')">🔗 Nối từ vựng</button>
+        </div>
+      </div>
+      <div class="sn-module-grid">
+        <div class="sn-module-card"><div class="sn-module-icon">🗂️</div><div class="sn-module-title">作文库</div><div class="sn-module-desc">Lưu đoạn văn, nhật ký, thư, bài luận và bài HSK.</div></div>
+        <div class="sn-module-card"><div class="sn-module-icon">拼</div><div class="sn-module-title">Pinyin & Dịch nghĩa</div><div class="sn-module-desc">Lưu riêng pinyin và bản dịch tiếng Việt của từng bài.</div></div>
+        <div class="sn-module-card"><div class="sn-module-icon">🧯</div><div class="sn-module-title">错题本</div><div class="sn-module-desc">Ghi câu sai → câu đúng → lý do → câu luyện lại.</div></div>
+        <div class="sn-module-card"><div class="sn-module-icon">🤖</div><div class="sn-module-title">AI 写作助手</div><div class="sn-module-desc">Tạo prompt chữa bài tiếng Trung và copy sang ChatGPT.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-dash" class="page">
+    <div class="grid4" id="stats"></div>
+    <div class="two">
+      <div class="section"><div class="sec-title">📁 Bài theo chủ đề</div><div id="topicChart"></div></div>
+      <div class="section"><div class="sec-title">🎚 Bài theo cấp độ</div><div id="levelChart"></div></div>
+    </div>
+    <div class="section">
+      <div class="sec-title">🕘 Bài mới nhất <button class="btn btn-green btn-sm" onclick="newEssay();goTo('write')">+ Bài mới</button></div>
+      <div id="recentList" class="list"></div>
+    </div>
+  </div>
+
+  <div id="page-write" class="page">
+    <div class="split">
+      <div class="section">
+        <div class="sec-title"><span>✍️ Lưu / chỉnh sửa bài tiếng Trung</span><span id="editMode" class="tag">New</span></div>
+        <input id="essay-id" type="hidden">
+        <div class="form-row">
+          <div><label>Tiêu đề bài</label><input id="e-title" placeholder="VD: 我的爱好 / 一次难忘的旅行"></div>
+          <div><label>Dạng bài</label><select id="e-type" onchange="updateCharGoal()"><option value="paragraph">Đoạn văn</option><option value="diary">Nhật ký</option><option value="story">Kể chuyện</option><option value="description">Miêu tả</option><option value="letter">Thư / Email</option><option value="essay">Bài luận</option><option value="hsk">Bài viết HSK</option><option value="other">Khác</option></select></div>
+        </div>
+        <div class="form-3">
+          <div><label>Chủ đề</label><select id="e-topic"></select></div>
+          <div><label>Hoặc chủ đề mới</label><input id="e-topic-new" placeholder="VD: 我的学校"></div>
+          <div><label>Cấp độ</label><select id="e-level" onchange="updateCharGoal()"><option>HSK1</option><option>HSK2</option><option selected>HSK3</option><option>HSK4</option><option>HSK5</option><option>HSK6</option><option>HSK7-9</option></select></div>
+        </div>
+        <div class="form-3">
+          <div><label>Trạng thái</label><select id="e-status"><option value="draft">Bản nháp</option><option value="finished">Đã viết xong</option><option value="checked">Đã chữa</option><option value="improved">Đã viết lại</option></select></div>
+          <div><label>Mục tiêu số chữ</label><input id="e-target" type="number" min="10" max="3000" placeholder="VD: 120"></div>
+          <div><label>Điểm / nhận xét ngắn</label><input id="e-score" placeholder="VD: 8/10 hoặc HSK4 khá"></div>
+        </div>
+        <div class="form-1"><label>Đề bài / yêu cầu</label><textarea id="e-prompt" placeholder="Dán đề bài hoặc yêu cầu viết vào đây..."></textarea></div>
+        <div class="form-1"><label>Bài viết chữ Hán *</label><textarea id="e-text" class="big zh-text" oninput="liveStats();renderVocabHits()" placeholder="在这里写或粘贴你的中文作文……"></textarea></div>
+        <div class="editor-stats">
+          <div class="tiny-stat"><b id="cc">0</b><span>Chữ Hán</span></div>
+          <div class="tiny-stat"><b id="sentc">0</b><span>Câu</span></div>
+          <div class="tiny-stat"><b id="allc">0</b><span>Ký tự</span></div>
+          <div class="tiny-stat"><b id="goalc">80+</b><span>Mục tiêu</span></div>
+        </div>
+        <div class="form-row" style="margin-top:12px">
+          <div><label>Pinyin của bài</label><textarea id="e-pinyin" class="pinyin-text" placeholder="Wǒ de àihào shì dǎ lánqiú..."></textarea></div>
+          <div><label>Bản dịch tiếng Việt</label><textarea id="e-translation" placeholder="Sở thích của tôi là chơi bóng rổ..."></textarea></div>
+        </div>
+        <div class="form-1"><label>Bản sửa hoàn chỉnh / 改进版</label><textarea id="e-improved" class="zh-text" placeholder="Dán bản đã được sửa tốt hơn vào đây..."></textarea></div>
+        <div class="form-1"><label>Ghi chú / cấu trúc cần nhớ</label><input id="e-notes" placeholder="VD: 虽然……但是……; 对……感兴趣"></div>
+        <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:10px">
+          <button class="btn btn-green" onclick="saveEssay()">✓ Lưu bài</button>
+          <button class="btn btn-default" onclick="newEssay()">+ Bài mới</button>
+          <button class="btn btn-blue" onclick="quickCheck()">🔎 Kiểm tra nhanh</button>
+          <button class="btn btn-purple" onclick="copyEssayPack()">📋 Copy gửi AI</button>
+        </div>
+        <div id="write-msg" class="msg"></div>
+      </div>
+      <div>
+        <div class="section">
+          <div class="sec-title">🔎 Kiểm tra nhanh</div>
+          <div id="quickCheckBox" class="muted">Bấm “Kiểm tra nhanh” để xem số chữ, dấu câu, khoảng trắng và một số cấu trúc cần chú ý.</div>
+        </div>
+        <div class="section">
+          <div class="sec-title">🔗 Từ đã học xuất hiện trong bài <button class="btn btn-blue btn-sm" onclick="refreshVocab()">↻</button></div>
+          <div class="muted" style="margin-bottom:10px">Web tự quét chữ Hán từ dữ liệu ChineseMaster. Nếu chưa có dữ liệu, nhập file backup ở tab “ChineseMaster”.</div>
+          <div id="vocabHits" class="vocab-box"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-library" class="page">
+    <div class="section" style="padding:14px">
+      <div class="filter-row">
+        <input id="f-search" placeholder="🔍 Tìm tiêu đề, chữ Hán, pinyin, nghĩa..." oninput="renderLibrary()">
+        <select id="f-type" onchange="renderLibrary()"><option value="">Tất cả dạng bài</option><option value="paragraph">Đoạn văn</option><option value="diary">Nhật ký</option><option value="story">Kể chuyện</option><option value="description">Miêu tả</option><option value="letter">Thư / Email</option><option value="essay">Bài luận</option><option value="hsk">Bài HSK</option><option value="other">Khác</option></select>
+        <select id="f-topic" onchange="renderLibrary()"><option value="">Tất cả chủ đề</option></select>
+        <select id="f-level" onchange="renderLibrary()"><option value="">Tất cả HSK</option><option>HSK1</option><option>HSK2</option><option>HSK3</option><option>HSK4</option><option>HSK5</option><option>HSK6</option><option>HSK7-9</option></select>
+        <select id="f-status" onchange="renderLibrary()"><option value="">Tất cả trạng thái</option><option value="draft">Bản nháp</option><option value="finished">Đã viết xong</option><option value="checked">Đã chữa</option><option value="improved">Đã viết lại</option></select>
+        <button class="btn btn-green btn-sm" onclick="newEssay();goTo('write')">+ Bài mới</button>
+      </div>
+    </div>
+    <div class="list" id="essayList"></div>
+  </div>
+
+  <div id="page-corrections" class="page">
+    <div class="split">
+      <div class="section">
+        <div class="sec-title">🧯 Thêm lỗi vào sổ 错题本</div>
+        <div class="form-row">
+          <div><label>Chọn bài</label><select id="c-essay"></select></div>
+          <div><label>Loại lỗi</label><select id="c-type"><option>Ngữ pháp</option><option>Từ vựng</option><option>Trật tự từ</option><option>Chữ Hán</option><option>Pinyin</option><option>Lượng từ</option><option>Dấu câu</option><option>Diễn đạt</option><option>Nội dung</option></select></div>
+        </div>
+        <div class="correction-grid">
+          <div><label>Câu / cụm sai</label><textarea id="c-wrong" class="zh" placeholder="VD: 我对篮球很喜欢。"></textarea></div>
+          <div><label>Câu / cụm đúng</label><textarea id="c-right" class="zh" placeholder="VD: 我很喜欢篮球。/ 我对篮球很感兴趣。"></textarea></div>
+        </div>
+        <div class="form-row" style="margin-top:12px">
+          <div><label>Lý do sai</label><input id="c-reason" placeholder="VD: 喜欢 không dùng theo cấu trúc 对……很喜欢"></div>
+          <div><label>Câu mới để luyện lại</label><input id="c-new" class="zh" placeholder="VD: 我对中国文化很感兴趣。"></div>
+        </div>
+        <button class="btn btn-green" onclick="addCorrection()">✓ Lưu lỗi</button>
+        <div id="corr-msg" class="msg"></div>
+      </div>
+      <div class="section">
+        <div class="sec-title">📌 Bộ lọc lỗi</div>
+        <div class="form-row">
+          <div><label>Lọc theo bài</label><select id="cf-essay" onchange="renderCorrections()"><option value="">Tất cả bài</option></select></div>
+          <div><label>Lọc theo loại</label><select id="cf-type" onchange="renderCorrections()"><option value="">Tất cả lỗi</option><option>Ngữ pháp</option><option>Từ vựng</option><option>Trật tự từ</option><option>Chữ Hán</option><option>Pinyin</option><option>Lượng từ</option><option>Dấu câu</option><option>Diễn đạt</option><option>Nội dung</option></select></div>
+        </div>
+        <button class="btn btn-purple btn-sm" onclick="exportMistakeText()">📋 Copy sổ lỗi</button>
+      </div>
+    </div>
+    <div class="section"><div class="sec-title">🗒 Lỗi đã lưu</div><div id="correctionList" class="list"></div></div>
+  </div>
+
+  <div id="page-vocab" class="page">
+    <div class="two">
+      <div class="section">
+        <div class="sec-title">🔗 Liên kết ChineseMaster 中文词库</div>
+        <div class="muted" style="margin-bottom:12px">Web sẽ tự đọc dữ liệu từ khóa <b>chinesemaster_data_v1</b> khi hai trang được mở cùng trình duyệt và cùng tên miền. Nếu không đọc được, xuất backup JSON từ ChineseMaster rồi nhập vào đây.</div>
+        <div style="display:flex;gap:9px;flex-wrap:wrap">
+          <a class="btn btn-green" href="index.html" target="_self">🀄 Mở ChineseMaster</a>
+          <button class="btn btn-blue" onclick="refreshVocab()">↻ Đọc lại dữ liệu</button>
+          <button class="btn btn-purple" onclick="document.getElementById('import-vocab').click()">⬆ Nhập backup ChineseMaster</button>
+          <input id="import-vocab" type="file" accept=".json,application/json" style="display:none" onchange="importVocabBackup(event)">
+        </div>
+        <div id="vocab-msg" class="msg"></div>
+      </div>
+      <div class="section">
+        <div class="sec-title">📊 Dữ liệu đang nối</div>
+        <div class="grid4" style="grid-template-columns:repeat(2,1fr);margin:0">
+          <div class="stat"><div class="label">Từ đọc được</div><div class="val" id="linkedWords">0</div><div class="sub">từ/cụm ChineseMaster</div></div>
+          <div class="stat"><div class="label">Chủ đề vocab</div><div class="val" id="linkedTopics">0</div><div class="sub">chủ đề khác nhau</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="sec-title">📚 Từ vựng ChineseMaster</div>
+      <div class="filter-row" style="margin-bottom:12px"><input id="vf-search" placeholder="Tìm Hán tự, pinyin, nghĩa..." oninput="renderVocabPage()"><select id="vf-topic" onchange="renderVocabPage()"><option value="">Tất cả chủ đề</option></select></div>
+      <div id="vocabList" class="vocab-box"></div>
+    </div>
+  </div>
+
+  <div id="page-settings" class="page">
+    <div class="section">
+      <div class="sec-title">⚙️ Cài đặt & dữ liệu</div>
+      <div class="form-row">
+        <div><label>Thêm chủ đề viết</label><input id="new-topic" placeholder="VD: 我的家乡"></div>
+        <div style="display:flex;align-items:end"><button class="btn btn-green" onclick="addTopic()">+ Thêm chủ đề</button></div>
+      </div>
+      <div class="muted" id="topicTags"></div>
+      <hr style="border:0;border-top:1px solid var(--bd);margin:18px 0">
+      <div style="display:flex;gap:9px;flex-wrap:wrap">
+        <button class="btn btn-blue" onclick="exportData()">⬇ Xuất backup Writing Vault</button>
+        <button class="btn btn-purple" onclick="document.getElementById('import-data').click()">⬆ Nhập backup</button>
+        <button class="btn btn-red" onclick="resetAll()">🗑 Xoá toàn bộ dữ liệu</button>
+      </div>
+      <div class="muted" style="margin-top:12px">Dữ liệu lưu bằng localStorage trong trình duyệt. Hãy xuất backup trước khi xoá lịch sử trình duyệt hoặc đổi máy.</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="viewModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box"><div class="modal-head"><b id="modalTitle">Chi tiết bài</b><button class="x" onclick="closeModal()">✕</button></div><div class="modal-body" id="modalBody"></div></div>
+</div>
+
+<div class="modal" id="aiModal" onclick="if(event.target===this)closeAI()">
+  <div class="modal-box" style="max-width:650px">
+    <div class="modal-head"><b>🤖 AI 写作助手</b><button class="x" onclick="closeAI()">✕</button></div>
+    <div class="modal-body">
+      <div class="muted" style="margin-bottom:10px">AI Coach sẽ tạo prompt chữa bài. Nút gửi sẽ copy prompt và mở ChatGPT trong tab mới.</div>
+      <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px">
+        <button class="btn btn-default btn-sm" onclick="aiPreset('correct')">🧯 Chữa lỗi</button>
+        <button class="btn btn-default btn-sm" onclick="aiPreset('pinyin')">拼 Tạo pinyin</button>
+        <button class="btn btn-default btn-sm" onclick="aiPreset('translate')">🇻🇳 Dịch nghĩa</button>
+        <button class="btn btn-default btn-sm" onclick="aiPreset('improve')">✨ Viết hay hơn</button>
+      </div>
+      <textarea id="aiText" class="big" placeholder="Dán bài hoặc yêu cầu về tiếng Trung..."></textarea>
+      <button class="btn btn-purple" style="width:100%;justify-content:center;margin-top:10px" onclick="doAI()">Gửi đến ChatGPT</button>
+      <div id="ai-msg" class="msg"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const KEY='chinesewritingvault_data_v1';
+const VOCAB_KEY='chinesemaster_data_v1';
+const defaultTopics=['Bản thân','Gia đình','Trường học','Cuộc sống hằng ngày','Sở thích','Bạn bè','Ăn uống','Sức khoẻ','Du lịch','Thể thao','Công việc','Công nghệ','Môi trường','Văn hoá','Xã hội','Quê hương','HSK Writing'];
+let S={essays:[],corrections:[],topics:[...defaultTopics],importedVocab:[],darkMode:true,lastBackup:null};
+let Vocab=[];
+function $(id){return document.getElementById(id)}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
+function today(){return new Date().toISOString().slice(0,10)}
+function fmt(d){try{return new Date(d).toLocaleDateString('vi-VN')}catch(e){return d||''}}
+function esc(s){return String(s||'').replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[m]))}
+function save(){localStorage.setItem(KEY,JSON.stringify(S))}
+function load(){try{let raw=localStorage.getItem(KEY);if(raw){let p=JSON.parse(raw);S=Object.assign(S,p);S.topics=[...new Set([...(S.topics||[]),...defaultTopics])];S.essays=S.essays||[];S.corrections=S.corrections||[];S.importedVocab=S.importedVocab||[]}}catch(e){console.warn(e)}}
+function msg(id,text,ok=true){let el=$(id);if(!el)return;el.className='msg '+(ok?'ok':'no');el.textContent=text;setTimeout(()=>{el.className='msg'},3200)}
+function goTo(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$('page-'+p).classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));[...document.querySelectorAll('.tab')].find(b=>b.getAttribute('onclick').includes("'"+p+"'"))?.classList.add('active');renderAll()}
+function toggleTheme(){S.darkMode=!S.darkMode;applyTheme();save()}
+function applyTheme(){document.body.classList.toggle('light',!S.darkMode);$('themeBtn').textContent=S.darkMode?'🌙':'☀️'}
+function chineseChars(text){return (String(text||'').match(/[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/g)||[])}
+function charCount(text){return chineseChars(text).length}
+function totalCount(text){return String(text||'').replace(/\s/g,'').length}
+function sentenceCount(text){let n=(String(text||'').match(/[。！？!?]+/g)||[]).length;return Math.max(n,String(text||'').trim()?1:0)}
+function typeText(t){return {paragraph:'Đoạn văn',diary:'Nhật ký',story:'Kể chuyện',description:'Miêu tả',letter:'Thư / Email',essay:'Bài luận',hsk:'Bài HSK',other:'Khác'}[t]||'Đoạn văn'}
+function statusText(s){return {draft:'Bản nháp',finished:'Đã viết xong',checked:'Đã chữa',improved:'Đã viết lại'}[s]||'Bản nháp'}
+function defaultGoal(){let l=$('e-level')?.value||'HSK3',t=$('e-type')?.value||'paragraph';let byLevel={HSK1:30,HSK2:50,HSK3:80,HSK4:120,HSK5:180,HSK6:250,'HSK7-9':350};let g=byLevel[l]||80;if(t==='diary'||t==='letter')g=Math.max(g,100);if(t==='essay')g=Math.max(g,200);return g}
+function updateCharGoal(){let g=parseInt($('e-target')?.value)||defaultGoal();$('goalc').textContent=g+'+';liveStats()}
+function liveStats(){let txt=$('e-text')?.value||'',g=parseInt($('e-target')?.value)||defaultGoal();$('cc').textContent=charCount(txt);$('sentc').textContent=sentenceCount(txt);$('allc').textContent=totalCount(txt);$('goalc').textContent=g+'+'}
+function syncTopicSelects(){let current=$('e-topic')?.value||'',opts=S.topics.map(t=>`<option value="${esc(t)}">${esc(t)}</option>`).join('');$('e-topic').innerHTML=opts;$('f-topic').innerHTML='<option value="">Tất cả chủ đề</option>'+opts;$('e-topic').value=current&&S.topics.includes(current)?current:S.topics[0];$('vf-topic').innerHTML='<option value="">Tất cả chủ đề</option>'+vocabTopics().map(t=>`<option value="${esc(t)}">${esc(t)}</option>`).join('')}
+function essayTitle(e){return e.title||((e.level||'HSK3')+' · '+(e.topic||'Không có chủ đề'))}
+function getEssay(id){return S.essays.find(e=>e.id===id)}
+function newEssay(){['essay-id','e-title','e-topic-new','e-target','e-score','e-prompt','e-text','e-pinyin','e-translation','e-improved','e-notes'].forEach(id=>{if($(id))$(id).value=''});$('e-type').value='paragraph';$('e-level').value='HSK3';$('e-status').value='draft';$('editMode').textContent='New';syncTopicSelects();updateCharGoal();renderVocabHits();$('quickCheckBox').innerHTML='Bấm “Kiểm tra nhanh” để xem số chữ, dấu câu, khoảng trắng và một số cấu trúc cần chú ý.'}
+function saveEssay(){let topic=$('e-topic-new').value.trim()||$('e-topic').value;if(topic&&!S.topics.includes(topic))S.topics.unshift(topic);let id=$('essay-id').value||uid(),old=getEssay(id);let e={id,createdAt:old?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString(),title:$('e-title').value.trim(),type:$('e-type').value,level:$('e-level').value,topic,status:$('e-status').value,targetChars:$('e-target').value,score:$('e-score').value.trim(),prompt:$('e-prompt').value,essayText:$('e-text').value,pinyin:$('e-pinyin').value,translation:$('e-translation').value,improvedText:$('e-improved').value,notes:$('e-notes').value};if(!e.essayText.trim()){msg('write-msg','⚠ Nhập bài viết chữ Hán trước đã.',false);return}if(old)Object.assign(old,e);else S.essays.unshift(e);save();$('essay-id').value=id;$('editMode').textContent='Editing';msg('write-msg','✓ Đã lưu bài viết tiếng Trung!');renderAll()}
+function loadEssay(id){let e=getEssay(id);if(!e)return;goTo('write');$('essay-id').value=e.id;$('e-title').value=e.title||'';$('e-type').value=e.type||'paragraph';$('e-level').value=e.level||'HSK3';syncTopicSelects();$('e-topic').value=e.topic||S.topics[0];$('e-topic-new').value='';$('e-status').value=e.status||'draft';$('e-target').value=e.targetChars||'';$('e-score').value=e.score||'';$('e-prompt').value=e.prompt||'';$('e-text').value=e.essayText||'';$('e-pinyin').value=e.pinyin||'';$('e-translation').value=e.translation||'';$('e-improved').value=e.improvedText||'';$('e-notes').value=e.notes||'';$('editMode').textContent='Editing';liveStats();renderVocabHits();quickCheck()}
+function deleteEssay(id){if(!confirm('Xoá bài này? Các lỗi liên quan vẫn được giữ trong sổ lỗi.'))return;S.essays=S.essays.filter(e=>e.id!==id);save();renderAll()}
+function duplicateEssay(id){let e=getEssay(id);if(!e)return;let copy=JSON.parse(JSON.stringify(e));copy.id=uid();copy.createdAt=copy.updatedAt=new Date().toISOString();copy.title=(copy.title||essayTitle(copy))+' (bản sao)';S.essays.unshift(copy);save();renderAll()}
+function cardEssay(e){let cc=S.corrections.filter(c=>c.essayId===e.id).length,c=charCount(e.essayText);return `<div class="card"><div class="card-head"><div><div class="title zh">${esc(essayTitle(e))}</div><div class="tags"><span class="tag t1">${esc(e.level||'HSK3')}</span><span class="tag t2">${esc(typeText(e.type))}</span><span class="tag">${esc(e.topic||'Không chủ đề')}</span><span class="tag warn">${esc(statusText(e.status))}</span>${e.score?`<span class="tag t1">${esc(e.score)}</span>`:''}<span class="tag red">${cc} lỗi</span><span class="tag">${c} chữ</span></div></div><div class="actions"><button class="btn btn-blue btn-sm" onclick="viewEssay('${e.id}')">Xem</button><button class="btn btn-green btn-sm" onclick="loadEssay('${e.id}')">Sửa</button><button class="btn btn-default btn-sm" onclick="duplicateEssay('${e.id}')">Copy</button><button class="btn btn-red btn-sm" onclick="deleteEssay('${e.id}')">Xoá</button></div></div><div class="snippet zh">${esc((e.essayText||'').slice(0,420))}</div><div class="mini" style="margin-top:7px">Cập nhật: ${fmt(e.updatedAt)}</div></div>`}
+function renderLibrary(){let q=($('f-search')?.value||'').toLowerCase(),type=$('f-type')?.value||'',topic=$('f-topic')?.value||'',level=$('f-level')?.value||'',status=$('f-status')?.value||'';let arr=S.essays.filter(e=>(!type||e.type===type)&&(!topic||e.topic===topic)&&(!level||e.level===level)&&(!status||e.status===status)&&(!q||JSON.stringify(e).toLowerCase().includes(q)));$('essayList').innerHTML=arr.length?arr.map(cardEssay).join(''):'<div class="empty">Chưa có bài nào phù hợp.</div>'}
+function renderRecent(){let arr=S.essays.slice(0,4);$('recentList').innerHTML=arr.length?arr.map(cardEssay).join(''):'<div class="empty">Chưa có bài nào. Hãy lưu bài đầu tiên.</div>'}
+function renderStats(){let total=S.essays.length,chars=S.essays.reduce((n,e)=>n+charCount(e.essayText),0),corr=S.corrections.length,improved=S.essays.filter(e=>e.status==='improved').length,levels=new Set(S.essays.map(e=>e.level).filter(Boolean)).size;$('stats').innerHTML=`<div class="stat"><div class="icon">🗂</div><div class="label">Tổng bài</div><div class="val">${total}</div><div class="sub">đã lưu</div></div><div class="stat"><div class="icon">汉</div><div class="label">Tổng chữ Hán</div><div class="val">${chars}</div><div class="sub">trong toàn bộ bài</div></div><div class="stat"><div class="icon">🧯</div><div class="label">Lỗi đã lưu</div><div class="val">${corr}</div><div class="sub">trong 错题本</div></div><div class="stat"><div class="icon">✨</div><div class="label">Đã viết lại</div><div class="val">${improved}</div><div class="sub">${levels} cấp độ HSK</div></div>`}
+function chartHTML(counts){let entries=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,10),max=Math.max(1,...entries.map(x=>x[1]));if(!entries.length)return '<div class="empty">Chưa có dữ liệu</div>';return entries.map(([k,v])=>`<div class="barrow"><div class="barlabel">${esc(k)}</div><div class="barbox"><div class="barfill" style="width:${Math.max(8,v/max*100)}%">${v}</div></div></div>`).join('')}
+function renderCharts(){let topics={},levels={};S.essays.forEach(e=>{topics[e.topic||'Không chủ đề']=(topics[e.topic||'Không chủ đề']||0)+1;levels[e.level||'HSK3']=(levels[e.level||'HSK3']||0)+1});$('topicChart').innerHTML=chartHTML(topics);$('levelChart').innerHTML=chartHTML(levels)}
+function renderEssaySelects(){let curC=$('c-essay')?.value||'',curF=$('cf-essay')?.value||'',opts=S.essays.map(e=>`<option value="${e.id}">${esc(essayTitle(e))}</option>`).join('');$('c-essay').innerHTML=opts||'<option value="">Chưa có bài</option>';$('cf-essay').innerHTML='<option value="">Tất cả bài</option>'+opts;if(curC)$('c-essay').value=curC;if(curF)$('cf-essay').value=curF}
+function addCorrection(){let essayId=$('c-essay').value,wrong=$('c-wrong').value.trim(),right=$('c-right').value.trim();if(!essayId){msg('corr-msg','⚠ Hãy lưu ít nhất một bài trước.',false);return}if(!wrong||!right){msg('corr-msg','⚠ Nhập cả câu sai và câu đúng.',false);return}S.corrections.unshift({id:uid(),essayId,type:$('c-type').value,wrong,right,reason:$('c-reason').value.trim(),practice:$('c-new').value.trim(),createdAt:new Date().toISOString(),mastered:false});['c-wrong','c-right','c-reason','c-new'].forEach(id=>$(id).value='');save();msg('corr-msg','✓ Đã lưu lỗi vào 错题本!');renderAll()}
+function renderCorrections(){let essay=$('cf-essay')?.value||'',type=$('cf-type')?.value||'';let arr=S.corrections.filter(c=>(!essay||c.essayId===essay)&&(!type||c.type===type));$('correctionList').innerHTML=arr.length?arr.map(c=>{let e=getEssay(c.essayId);return `<div class="card"><div class="card-head"><div><div class="title">${esc(c.type)} · ${esc(e?essayTitle(e):'Không rõ bài')}</div><div class="mini">${fmt(c.createdAt)}</div></div><div class="actions"><button class="btn btn-default btn-sm" onclick="toggleMastered('${c.id}')">${c.mastered?'↩ Chưa thuộc':'✓ Đã thuộc'}</button><button class="btn btn-red btn-sm" onclick="deleteCorrection('${c.id}')">Xoá</button></div></div><div style="margin-top:10px" class="check-item"><div class="check-title wrong">Sai</div><div class="check-text zh">${esc(c.wrong)}</div></div><div class="check-item"><div class="check-title right">Đúng</div><div class="check-text zh">${esc(c.right)}</div></div>${c.reason?`<div class="check-item"><div class="check-title">Lý do</div><div class="check-text">${esc(c.reason)}</div></div>`:''}${c.practice?`<div class="check-item"><div class="check-title">Luyện lại</div><div class="check-text zh">${esc(c.practice)}</div></div>`:''}<div class="tags"><span class="tag ${c.mastered?'t1':'red'}">${c.mastered?'Đã thuộc':'Cần ôn'}</span></div></div>`}).join(''):'<div class="empty">Chưa có lỗi nào được lưu.</div>'}
+function toggleMastered(id){let c=S.corrections.find(x=>x.id===id);if(c){c.mastered=!c.mastered;save();renderCorrections()}}
+function deleteCorrection(id){if(confirm('Xoá lỗi này?')){S.corrections=S.corrections.filter(c=>c.id!==id);save();renderAll()}}
+function quickCheck(){let txt=$('e-text').value,c=charCount(txt),goal=parseInt($('e-target').value)||defaultGoal(),items=[];if(!c)items.push(['Chưa có chữ Hán','Bài hiện chưa chứa ký tự tiếng Trung.']);if(c<goal)items.push(['Chưa đạt mục tiêu',`Bài hiện có ${c} chữ Hán; mục tiêu là ${goal} chữ.`]);if(/[\u3400-\u9FFF]\s+[\u3400-\u9FFF]/.test(txt))items.push(['Khoảng trắng giữa chữ Hán','Tiếng Trung thường không đặt khoảng trắng giữa từng chữ. Hãy kiểm tra các chỗ đang bị tách.']);if(/[。！？!?]{2,}/.test(txt))items.push(['Dấu câu bị lặp','Có vị trí dùng hai dấu kết câu liên tiếp.']);if(/\.{2,}/.test(txt))items.push(['Dấu chấm kiểu tiếng Anh','Trong bài tiếng Trung nên ưu tiên dấu “。” thay vì nhiều dấu “.” liên tiếp.']);if(/虽然/.test(txt)&&!/(但是|可是|不过)/.test(txt))items.push(['Kiểm tra 虽然','Cấu trúc thường gặp: 虽然……但是/可是……; đôi khi có thể bỏ 但是 nhưng cần xem lại ý câu.']);if(/因为/.test(txt)&&!/(所以|因此|于是)/.test(txt))items.push(['Kiểm tra 因为','Có 因为 nhưng chưa thấy 所以/因此. Tiếng Trung có thể lược một vế, nhưng nên kiểm tra lại cấu trúc.']);if(/一边/.test(txt)&&(txt.match(/一边/g)||[]).length===1)items.push(['Kiểm tra 一边……一边……','Cấu trúc diễn tả hai hành động đồng thời thường cần hai vế 一边.']);if(!/[。！？!?]/.test(txt)&&c>40)items.push(['Thiếu dấu kết câu','Bài khá dài nhưng chưa thấy dấu “。！？”. Hãy chia câu rõ hơn.']);let hitCount=Vocab.filter(w=>w.hanzi&&txt.includes(w.hanzi)).length;if(hitCount)items.push(['Từ đã học được sử dụng',`Bài đang dùng ${hitCount} từ/cụm có trong ChineseMaster.`]);$('quickCheckBox').innerHTML=items.length?`<div class="quick-grid">${items.map(x=>`<div class="check-item"><div class="check-title">${esc(x[0])}</div><div class="check-text">${esc(x[1])}</div></div>`).join('')}</div>`:'<div class="check-item"><div class="check-title right">Kiểm tra cơ bản ổn!</div><div class="check-text">Chưa phát hiện vấn đề định dạng rõ ràng. Ngữ pháp và độ tự nhiên vẫn nên được giáo viên hoặc AI kiểm tra kỹ.</div></div>'}
+async function copyEssayPack(){let pack=`Hãy chữa bài viết tiếng Trung này cho học sinh Việt Nam.\n\nCấp độ: ${$('e-level').value}\nDạng bài: ${typeText($('e-type').value)}\nChủ đề: ${$('e-topic-new').value||$('e-topic').value}\nMục tiêu số chữ: ${$('e-target').value||defaultGoal()}\n\nĐề bài:\n${$('e-prompt').value}\n\nBài của tôi:\n${$('e-text').value}\n\nYêu cầu:\n1. Chấm mức độ phù hợp với HSK đã chọn.\n2. Chỉ ra từng lỗi theo bảng: câu sai | câu đúng | loại lỗi | giải thích bằng tiếng Việt.\n3. Kiểm tra ngữ pháp, trật tự từ, lượng từ, cách dùng 的/地/得, từ vựng và dấu câu.\n4. Viết bản sửa tự nhiên hơn nhưng không quá khó so với cấp độ.\n5. Tạo pinyin và bản dịch tiếng Việt cho bản sửa.\n6. Cho 5 câu luyện lại dựa trên lỗi của tôi.`;try{await navigator.clipboard.writeText(pack);msg('write-msg','✓ Đã copy prompt chữa bài tiếng Trung.')}catch(e){msg('write-msg','Không copy tự động được. Hãy copy thủ công.',false)}}
+function viewEssay(id){let e=getEssay(id);if(!e)return;let cor=S.corrections.filter(c=>c.essayId===id);$('modalTitle').textContent=essayTitle(e);$('modalBody').innerHTML=`<div class="tags"><span class="tag t1">${esc(e.level||'HSK3')}</span><span class="tag t2">${esc(typeText(e.type))}</span><span class="tag">${esc(e.topic||'Không chủ đề')}</span><span class="tag warn">${esc(statusText(e.status))}</span>${e.score?`<span class="tag t1">${esc(e.score)}</span>`:''}<span class="tag red">${cor.length} lỗi</span><span class="tag">${charCount(e.essayText)} chữ</span></div>${e.prompt?`<h3 style="margin:16px 0 7px">Đề bài</h3><div class="check-item"><div class="check-text" style="white-space:pre-wrap">${esc(e.prompt)}</div></div>`:''}<h3 style="margin:16px 0 7px">Bài chữ Hán</h3><div class="check-item"><div class="check-text zh-text" style="white-space:pre-wrap">${esc(e.essayText)}</div></div>${e.pinyin?`<h3 style="margin:16px 0 7px">Pinyin</h3><div class="check-item"><div class="pinyin-text" style="white-space:pre-wrap">${esc(e.pinyin)}</div></div>`:''}${e.translation?`<h3 style="margin:16px 0 7px">Bản dịch tiếng Việt</h3><div class="check-item"><div class="translation-text" style="white-space:pre-wrap">${esc(e.translation)}</div></div>`:''}${e.improvedText?`<h3 style="margin:16px 0 7px">Bản sửa / 改进版</h3><div class="check-item"><div class="check-text zh-text" style="white-space:pre-wrap">${esc(e.improvedText)}</div></div>`:''}${e.notes?`<h3 style="margin:16px 0 7px">Ghi chú</h3><div class="check-item"><div class="check-text">${esc(e.notes)}</div></div>`:''}<h3 style="margin:16px 0 7px">Lỗi liên quan</h3>${cor.length?cor.map(c=>`<div class="check-item"><b>${esc(c.type)}</b><div class="wrong zh">Sai: ${esc(c.wrong)}</div><div class="right zh">Đúng: ${esc(c.right)}</div>${c.reason?`<div class="check-text">Lý do: ${esc(c.reason)}</div>`:''}</div>`).join(''):'<div class="empty">Bài này chưa có lỗi được lưu.</div>'}<div style="display:flex;gap:8px;margin-top:14px"><button class="btn btn-green" onclick="closeModal();loadEssay('${e.id}')">Sửa bài</button><button class="btn btn-purple" onclick="closeModal();goTo('corrections');$('c-essay').value='${e.id}'">Thêm lỗi</button></div>`;$('viewModal').classList.add('open')}
+function closeModal(){$('viewModal').classList.remove('open')}
+function refreshVocab(){Vocab=[];try{let raw=localStorage.getItem(VOCAB_KEY);if(raw){let v=JSON.parse(raw);if(Array.isArray(v.words))Vocab=Vocab.concat(v.words)}}catch(e){}if(Array.isArray(S.importedVocab))Vocab=Vocab.concat(S.importedVocab);let seen=new Set();Vocab=Vocab.filter(w=>{let k=(w.hanzi||w.term||'').trim();if(!k||seen.has(k))return false;seen.add(k);return true});renderVocabPage();renderVocabHits();$('linkedWords').textContent=Vocab.length;$('linkedTopics').textContent=vocabTopics().length;syncTopicSelects();return Vocab.length}
+function vocabTopics(){return [...new Set(Vocab.map(w=>w.topic).filter(Boolean))].sort()}
+function vocabItem(w,hit=false){let hanzi=w.hanzi||w.term||'',meaning=w.meaning||w.def||'',pinyin=w.pinyin||'',sentence=w.sentence||w.wex||'',sm=w.sentenceMeaning||'';return `<div class="vocab-item ${hit?'hit':''}"><div class="vocab-term zh" style="font-size:18px">${esc(hanzi)}</div>${pinyin?`<div class="pinyin">${esc(pinyin)}</div>`:''}<div class="vocab-def">${esc(meaning)}</div>${w.topic?`<div class="tags"><span class="tag">${esc(w.topic)}</span>${w.level?`<span class="tag t1">${esc(w.level)}</span>`:''}${w.type?`<span class="tag t2">${esc(w.type)}</span>`:''}</div>`:''}${sentence?`<div class="vocab-ex zh">${esc(sentence)}</div>`:''}${sm?`<div class="vocab-ex">${esc(sm)}</div>`:''}</div>`}
+function renderVocabPage(){let q=($('vf-search')?.value||'').toLowerCase(),topic=$('vf-topic')?.value||'';let arr=Vocab.filter(w=>(!topic||w.topic===topic)&&(!q||JSON.stringify(w).toLowerCase().includes(q))).slice(0,300);$('vocabList').innerHTML=arr.length?arr.map(w=>vocabItem(w)).join(''):'<div class="empty">Chưa đọc được vocab. Hãy mở cùng trình duyệt/tên miền hoặc nhập backup JSON từ ChineseMaster.</div>';if($('linkedWords')){$('linkedWords').textContent=Vocab.length;$('linkedTopics').textContent=vocabTopics().length}}
+function renderVocabHits(){let box=$('vocabHits');if(!box)return;let txt=$('e-text')?.value||'';if(!Vocab.length){box.innerHTML='<div class="empty">Chưa có dữ liệu ChineseMaster để quét.</div>';return}let hits=Vocab.filter(w=>{let h=(w.hanzi||w.term||'').trim();return h&&txt.includes(h)}).slice(0,50);box.innerHTML=hits.length?hits.map(w=>vocabItem(w,true)).join(''):'<div class="empty">Chưa thấy từ nào trong bài trùng với ChineseMaster.</div>'}
+function importVocabBackup(ev){let f=ev.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let data=JSON.parse(r.result),words=Array.isArray(data.words)?data.words:(Array.isArray(data)?data:[]);if(!words.length)throw Error('no words');S.importedVocab=words;save();refreshVocab();msg('vocab-msg','✓ Đã nhập '+words.length+' từ/cụm từ ChineseMaster.')}catch(e){msg('vocab-msg','⚠ File không đúng định dạng backup ChineseMaster.',false)}};r.readAsText(f);ev.target.value=''}
+function exportData(){S.lastBackup=new Date().toISOString();save();let blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='chinese_writing_vault_backup_'+today()+'.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(ev){let f=ev.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let data=JSON.parse(r.result);if(!Array.isArray(data.essays))throw Error('bad');if(!confirm('Nhập file này sẽ ghi đè dữ liệu hiện tại. Tiếp tục?'))return;S=Object.assign({essays:[],corrections:[],topics:[...defaultTopics],importedVocab:[],darkMode:true,lastBackup:null},data);save();init();alert('Đã nhập dữ liệu Chinese Writing Vault!')}catch(e){alert('File không hợp lệ.')}};r.readAsText(f);ev.target.value=''}
+function resetAll(){if(confirm('Xoá toàn bộ dữ liệu Chinese Writing Vault?')){localStorage.removeItem(KEY);S={essays:[],corrections:[],topics:[...defaultTopics],importedVocab:[],darkMode:true,lastBackup:null};init()}}
+function addTopic(){let t=$('new-topic').value.trim();if(!t)return;if(!S.topics.includes(t))S.topics.unshift(t);$('new-topic').value='';save();renderAll()}
+function renderTopicTags(){$('topicTags').innerHTML=S.topics.map(t=>`<span class="tag" style="margin:3px">${esc(t)} <button style="background:transparent;border:0;color:var(--t4);cursor:pointer;font-weight:950" onclick="removeTopic('${esc(t)}')">×</button></span>`).join('')}
+function removeTopic(t){if(defaultTopics.includes(t)){alert('Chủ đề mặc định cứ để đó cho tiện nha.');return}S.topics=S.topics.filter(x=>x!==t);save();renderAll()}
+async function exportMistakeText(){let text=S.corrections.map((c,i)=>`${i+1}. [${c.type}]\nSai: ${c.wrong}\nĐúng: ${c.right}\nLý do: ${c.reason||''}\nLuyện lại: ${c.practice||''}`).join('\n\n');try{await navigator.clipboard.writeText(text||'Chưa có lỗi nào.');alert('Đã copy sổ lỗi.')}catch(e){alert('Không copy tự động được.')}}
+function openAI(){let current=$('e-text')?.value||'';$('aiModal').classList.add('open');if(current&&!$('aiText').value)$('aiText').value=current;setTimeout(()=>$('aiText')?.focus(),60)}
+function closeAI(){$('aiModal').classList.remove('open')}
+function aiPreset(mode){let text=$('e-text')?.value||$('aiText').value||'',level=$('e-level')?.value||'HSK3';let prompts={correct:`Hãy chữa bài viết tiếng Trung sau cho học sinh Việt Nam trình độ ${level}. Chỉ ra câu sai, câu đúng, loại lỗi và giải thích bằng tiếng Việt. Sau đó viết bản sửa tự nhiên hơn, kèm pinyin và bản dịch:\n\n${text}`,pinyin:`Hãy viết pinyin có dấu đầy đủ cho bài tiếng Trung sau, giữ nguyên từng câu và xuống dòng tương ứng:\n\n${text}`,translate:`Hãy dịch bài tiếng Trung sau sang tiếng Việt tự nhiên, chính xác theo từng câu:\n\n${text}`,improve:`Hãy viết lại bài tiếng Trung sau tự nhiên hơn nhưng vẫn phù hợp trình độ ${level}. Không dùng quá nhiều từ khó. Sau bản sửa, liệt kê 8 từ/cấu trúc đáng học:\n\n${text}`};$('aiText').value=prompts[mode]||text}
+async function doAI(){let text=$('aiText').value.trim();if(!text)return;try{await navigator.clipboard.writeText(text);msg('ai-msg','✓ Đã copy prompt. Đang mở ChatGPT...');window.open('https://chatgpt.com/','_blank')}catch(e){msg('ai-msg','Không copy tự động được, hãy copy thủ công.',false)}}
+function renderAll(){syncTopicSelects();renderStats();renderCharts();renderRecent();renderLibrary();renderEssaySelects();renderCorrections();renderVocabPage();renderVocabHits();renderTopicTags();liveStats()}
+function init(){load();applyTheme();syncTopicSelects();refreshVocab();renderAll();newEssay()}
+init();
+</script>
+</body>
+</html>
