@@ -21,6 +21,7 @@ window.STUDYNOVA_TRANSLATIONS = {
       stopRecording: "Dừng ghi âm",
       microphoneUnavailable: "Không thể sử dụng micrô.",
       invalidBackup: "Tệp sao lưu không hợp lệ."
+      ,installApp: "Cài ứng dụng", appInstalled: "Đã cài StudyNova Chinese", installInstructions: "Để cài ứng dụng: nhấn nút Chia sẻ, sau đó chọn “Thêm vào Màn hình chính”.", installTitle: "Cài StudyNova Chinese", menu: "Menu"
     },
     home: {
       streak: "Chuỗi học tập",
@@ -38,8 +39,39 @@ window.STUDYNOVA_TRANSLATIONS = {
       keepGoing: "Tiếp tục nhé",
       mastery: "Độ thành thạo",
       hskRange: "HSK 1–9",
-      spaces: "Không gian học tập"
+      spaces: "Không gian học tập",
+      viewProgress: "Xem tiến độ",
+      dailyGoal: "Mục tiêu ngày",
+      todayPriority: "Việc ưu tiên hôm nay",
+      estimatedTime: "Khoảng 5 phút",
+      priorityReview: "Ôn các từ đến hạn",
+      priorityReviewDescription: "Củng cố những từ cần ôn để duy trì nhịp học hôm nay.",
+      priorityAdd: "Tạo kho từ vựng đầu tiên",
+      priorityAddDescription: "Thêm từ mới để bắt đầu lộ trình học cá nhân của bạn.",
+      priorityLearn: "Tiếp tục học tập",
+      priorityLearnDescription: "Chọn một hoạt động phù hợp trong Trung tâm học tập.",
+      startReview: "Bắt đầu ôn",
+      startAdding: "Thêm từ mới",
+      startLearning: "Bắt đầu học",
+      tests: "Bài kiểm tra",
+      testsDescription: "Chưa có bài cần làm",
+      savedWords: "Từ vựng đã lưu",
+      savedWordsDescription: "Trong kho cá nhân",
+      dueDescription: "Sẵn sàng ôn tập",
+      streakDescription: "Nhịp học hiện tại",
+      explore: "Khám phá",
+      yourJourney: "Hành trình của bạn",
+      recentActivity: "Hoạt động gần đây",
+      viewAll: "Xem tất cả",
+      noActivity: "Chưa có hoạt động học tập nào.",
+      noActivityDescription: "Bắt đầu một hoạt động để xây dựng nhịp học của bạn.",
+      activityReview: "Đã ôn tập từ vựng",
+      activityLearning: "Hoạt động học tập",
+      today: "Hôm nay",
+      openModule: "Mở"
     },
+    learning: { eyebrow: "TRUNG TÂM HỌC TẬP", title: "Bạn muốn học gì hôm nay?", description: "Chọn một không gian phù hợp với mục tiêu của bạn." },
+    quickImport: { addVocabulary:"Thêm từ vựng", single:"Thêm một từ", title:"Nhập nhanh", imageImport:"Nhập từ ảnh", close:"Đóng", description:"Dán tối đa 200 mục, mỗi mục trên một dòng. Dùng dấu | hoặc tab.", shortFormat:"Ngắn · 3 trường", standardFormat:"Tiêu chuẩn · 5 trường", fullFormat:"Đầy đủ · 8 trường", placeholder:"Hán tự | pinyin | nghĩa", paste:"Dán", showExample:"Xem ví dụ", clear:"Xóa nội dung", preview:"Xem trước", total:"Tổng số dòng", valid:"Dòng hợp lệ", invalid:"Dòng lỗi", duplicates:"Từ bị trùng", ready:"Sẽ được thêm", filterAll:"Tất cả", filterValid:"Hợp lệ", filterInvalid:"Lỗi", filterDuplicate:"Trùng", status:"Trạng thái", hanzi:"Hán tự", pinyin:"Pinyin", meaning:"Nghĩa", topic:"Chủ đề", partOfSpeech:"Từ loại", hsk:"HSK", example:"Ví dụ", exampleTranslation:"Dịch câu", actions:"Hành động", cancel:"Hủy", import:"Nhập dữ liệu", warning:"Cảnh báo", duplicate:"Trùng", skip:"Bỏ qua", merge:"Gộp dữ liệu", update:"Cập nhật nội dung", removeRow:"Xóa dòng", limitExceeded:"Mỗi lần chỉ được nhập tối đa 200 mục.", fieldCount:"Chỉ chấp nhận dòng có 3, 5 hoặc 8 trường.", requiredHanzi:"Thiếu Hán tự.", invalidHanzi:"Phải có ít nhất một ký tự tiếng Trung.", requiredPinyin:"Thiếu pinyin.", requiredMeaning:"Thiếu nghĩa.", invalidHsk:"Cấp độ HSK không hợp lệ.", missingTranslation:"Có ví dụ nhưng thiếu bản dịch.", needsReview:"Dòng này cần được kiểm tra.", saveFailed:"Không thể lưu. Dữ liệu cũ vẫn được giữ nguyên.", result:"Đã thêm {added} từ, bỏ qua {duplicates} từ trùng và phát hiện {invalid} dòng lỗi.", undo:"Hoàn tác", undone:"Đã hoàn tác lần nhập.", clipboardFailed:"Không thể truy cập clipboard. Hãy dán thủ công.", copied:"Đã sao chép prompt.", imageGuide:"Tải ảnh sách hoặc danh sách từ lên ChatGPT, dùng prompt dưới đây rồi dán kết quả trở lại.", promptLabel:"Prompt mẫu", copyPrompt:"Sao chép prompt", pasteResult:"Dán kết quả từ ChatGPT", sendToQuick:"Đưa vào Nhập nhanh", exampleData:"学习 | xuéxí | học tập\n努力 | nǔlì | nỗ lực, cố gắng", imagePrompt:"Hãy đọc các từ vựng tiếng Trung trong ảnh và xuất đúng một mục trên mỗi dòng.\n\nDùng đúng định dạng:\nHán tự | pinyin | nghĩa tiếng Việt | chủ đề | từ loại | cấp độ HSK | câu ví dụ tiếng Trung | dịch câu\n\nYêu cầu:\n- Viết pinyin có dấu thanh chính xác.\n- Nghĩa tiếng Việt tự nhiên, ngắn gọn.\n- Không thêm số thứ tự.\n- Không thêm tiêu đề.\n- Không dùng bảng Markdown.\n- Không giải thích.\n- Nếu không chắc một ký tự, đánh dấu [cần kiểm tra]." },
     vocabulary: {
       title: "Từ vựng",
       description: "Lưu Hán tự, Pinyin, nghĩa và ví dụ của riêng bạn.",
@@ -109,7 +141,7 @@ window.STUDYNOVA_TRANSLATIONS = {
       empty: "Chưa có bài viết nào."
     }
   },
-  "zh-CN": {
+  zh: {
     brandTagline: "中文学习",
     nav: {
       overview: "总览",
@@ -130,6 +162,7 @@ window.STUDYNOVA_TRANSLATIONS = {
       stopRecording: "停止录音",
       microphoneUnavailable: "无法使用麦克风。",
       invalidBackup: "备份文件无效。"
+      ,installApp: "安装应用", appInstalled: "StudyNova Chinese 已安装", installInstructions: "安装应用：点击“分享”，然后选择“添加到主屏幕”。", installTitle: "安装 StudyNova Chinese", menu: "菜单"
     },
     home: {
       streak: "连续学习",
@@ -147,8 +180,13 @@ window.STUDYNOVA_TRANSLATIONS = {
       keepGoing: "继续加油",
       mastery: "掌握程度",
       hskRange: "HSK 1–9",
-      spaces: "学习空间"
+      spaces: "学习空间",
+      viewProgress: "查看进度", dailyGoal: "今日目标", todayPriority: "今日优先任务", estimatedTime: "约 5 分钟",
+      priorityReview: "复习到期词汇", priorityReviewDescription: "巩固今天需要复习的词汇，保持学习节奏。", priorityAdd: "创建你的第一个词库", priorityAddDescription: "添加生词，开始你的个性化学习路径。", priorityLearn: "继续学习", priorityLearnDescription: "在学习中心选择适合你的活动。", startReview: "开始复习", startAdding: "添加生词", startLearning: "开始学习",
+      tests: "测试", testsDescription: "暂无待完成测试", savedWords: "已保存词汇", savedWordsDescription: "个人词库", dueDescription: "可以开始复习", streakDescription: "当前学习节奏", explore: "探索", yourJourney: "你的学习旅程", recentActivity: "最近活动", viewAll: "查看全部", noActivity: "还没有学习活动。", noActivityDescription: "开始一项活动，建立你的学习节奏。", activityReview: "已复习词汇", activityLearning: "学习活动", today: "今天", openModule: "打开"
     },
+    learning: { eyebrow: "学习中心", title: "今天想学什么？", description: "根据你的目标选择一个学习空间。" },
+    quickImport: { addVocabulary:"添加词汇", single:"添加一个词", title:"快速导入", imageImport:"从图片导入", close:"关闭", description:"一次最多粘贴 200 项，每行一项。使用 | 或制表符分隔。", shortFormat:"简短 · 3 项", standardFormat:"标准 · 5 项", fullFormat:"完整 · 8 项", placeholder:"汉字 | pinyin | 释义", paste:"粘贴", showExample:"查看示例", clear:"清空内容", preview:"预览", total:"总行数", valid:"有效项目", invalid:"错误项目", duplicates:"重复词汇", ready:"即将添加", filterAll:"全部", filterValid:"有效", filterInvalid:"错误", filterDuplicate:"重复", status:"状态", hanzi:"汉字", pinyin:"Pinyin", meaning:"释义", topic:"主题", partOfSpeech:"词性", hsk:"HSK", example:"例句", exampleTranslation:"例句翻译", actions:"操作", cancel:"取消", import:"导入数据", warning:"警告", duplicate:"重复", skip:"跳过", merge:"合并数据", update:"更新内容", removeRow:"删除此行", limitExceeded:"每次最多只能导入 200 项。", fieldCount:"每行只能有 3、5 或 8 项。", requiredHanzi:"缺少汉字。", invalidHanzi:"必须包含至少一个汉字。", requiredPinyin:"缺少 pinyin。", requiredMeaning:"缺少释义。", invalidHsk:"HSK 级别无效。", missingTranslation:"有例句但缺少翻译。", needsReview:"此行需要检查。", saveFailed:"无法保存，原有数据未被更改。", result:"已添加 {added} 个词，跳过 {duplicates} 个重复词，发现 {invalid} 个错误项目。", undo:"撤销", undone:"已撤销本次导入。", clipboardFailed:"无法访问剪贴板，请手动粘贴。", copied:"提示词已复制。", imageGuide:"将课本或词表图片上传到 ChatGPT，使用下面的提示词，然后粘贴结果。", promptLabel:"示例提示词", copyPrompt:"复制提示词", pasteResult:"粘贴 ChatGPT 的结果", sendToQuick:"发送到快速导入", exampleData:"学习 | xuéxí | 学习\n努力 | nǔlì | 努力、用功", imagePrompt:"请读取图片中的中文词汇，每行只输出一项。\n\n严格使用格式：\n汉字 | pinyin | 释义 | 主题 | 词性 | HSK 级别 | 中文例句 | 例句翻译\n\n要求：\n- pinyin 声调必须准确。\n- 释义自然、简短。\n- 不添加序号或标题。\n- 不使用 Markdown 表格。\n- 不作解释。\n- 不确定的字符请标记 [cần kiểm tra]。" },
     vocabulary: {
       title: "词汇",
       description: "保存属于你的汉字、Pinyin、释义和例句。",
@@ -217,17 +255,34 @@ window.STUDYNOVA_TRANSLATIONS = {
       saved: "文章已保存。",
       empty: "还没有文章。"
     }
+  },
+  en: {
+    brandTagline: "LEARN CHINESE",
+    nav: { overview: "Overview", vocabulary: "Vocabulary", review: "Review", hskPath: "HSK Roadmap", speaking: "Speaking", writingVault: "Writing Vault", data: "Data" },
+    common: { days: "days", language: "Language", theme: "Theme", changeTheme: "Change theme", close: "Close", delete: "Delete", stopRecording: "Stop recording", microphoneUnavailable: "The microphone is unavailable.", invalidBackup: "This backup file is invalid.", installApp: "Install app", appInstalled: "StudyNova Chinese installed", installInstructions: "To install the app, tap Share, then select “Add to Home Screen”.", installTitle: "Install StudyNova Chinese", menu: "Menu" },
+    home: { streak: "Learning streak", localFirst: "Learn consistently and progress at your own pace.", welcome: "WELCOME BACK", learnChinese: "Master Chinese", oneStep: "one step every day.", heroText: "From Chinese characters and tones to natural conversation — all in one private learning space.", addWord: "Add new words", reviewNow: "Review now", words: "Words learned", personalVault: "Personal vocabulary", due: "Due today", spaced: "Spaced repetition", keepGoing: "Keep going", mastery: "Mastery", hskRange: "HSK 1–9", spaces: "Learning spaces", viewProgress: "View progress", dailyGoal: "Daily goal", todayPriority: "Today's priority", estimatedTime: "About 5 minutes", priorityReview: "Review due words", priorityReviewDescription: "Reinforce the words due today and keep your learning rhythm going.", priorityAdd: "Create your first vocabulary set", priorityAddDescription: "Add new words to begin your personal learning path.", priorityLearn: "Continue learning", priorityLearnDescription: "Choose the right activity in the Learning Center.", startReview: "Start review", startAdding: "Add new words", startLearning: "Start learning", tests: "Tests", testsDescription: "No tests due", savedWords: "Saved vocabulary", savedWordsDescription: "In your personal vault", dueDescription: "Ready to review", streakDescription: "Current learning rhythm", explore: "Explore", yourJourney: "Your journey", recentActivity: "Recent activity", viewAll: "View all", noActivity: "No learning activity yet.", noActivityDescription: "Start an activity to build your learning rhythm.", activityReview: "Reviewed vocabulary", activityLearning: "Learning activity", today: "Today", openModule: "Open" },
+    learning: { eyebrow: "LEARNING CENTER", title: "What would you like to learn today?", description: "Choose a learning space that matches your goal." },
+    quickImport: { addVocabulary:"Add vocabulary", single:"Add one word", title:"Quick import", imageImport:"Import from image", close:"Close", description:"Paste up to 200 items, one per line. Separate fields with | or tabs.", shortFormat:"Short · 3 fields", standardFormat:"Standard · 5 fields", fullFormat:"Full · 8 fields", placeholder:"Chinese | pinyin | meaning", paste:"Paste", showExample:"Show example", clear:"Clear", preview:"Preview", total:"Total lines", valid:"Valid items", invalid:"Invalid items", duplicates:"Duplicates", ready:"Ready to import", filterAll:"All", filterValid:"Valid", filterInvalid:"Invalid", filterDuplicate:"Duplicates", status:"Status", hanzi:"Chinese", pinyin:"Pinyin", meaning:"Meaning", topic:"Topic", partOfSpeech:"Part of speech", hsk:"HSK", example:"Example", exampleTranslation:"Example translation", actions:"Actions", cancel:"Cancel", import:"Import data", warning:"Warning", duplicate:"Duplicate", skip:"Skip", merge:"Merge data", update:"Update content", removeRow:"Remove row", limitExceeded:"You can import no more than 200 items at a time.", fieldCount:"A line must contain exactly 3, 5, or 8 fields.", requiredHanzi:"Chinese text is required.", invalidHanzi:"Include at least one Chinese character.", requiredPinyin:"Pinyin is required.", requiredMeaning:"Meaning is required.", invalidHsk:"The HSK level is invalid.", missingTranslation:"The example has no translation.", needsReview:"This line needs review.", saveFailed:"Could not save. Existing data was not changed.", result:"Added {added} words, skipped {duplicates} duplicates, and found {invalid} invalid lines.", undo:"Undo", undone:"The import was undone.", clipboardFailed:"Clipboard access is unavailable. Paste manually instead.", copied:"Prompt copied.", imageGuide:"Upload a textbook or vocabulary-list image to ChatGPT, use the prompt below, then paste the result.", promptLabel:"Sample prompt", copyPrompt:"Copy prompt", pasteResult:"Paste the result from ChatGPT", sendToQuick:"Send to Quick Import", exampleData:"学习 | xuéxí | to study\n努力 | nǔlì | effort, to work hard", imagePrompt:"Read the Chinese vocabulary in the image and output exactly one item per line.\n\nUse this exact format:\nChinese | pinyin | English meaning | topic | part of speech | HSK level | Chinese example | example translation\n\nRequirements:\n- Use accurate tone marks in pinyin.\n- Keep meanings natural and concise.\n- Do not add numbering or headings.\n- Do not use a Markdown table.\n- Do not explain.\n- Mark uncertain characters with [cần kiểm tra]." },
+    vocabulary: { title: "Vocabulary", description: "Save your own Chinese characters, Pinyin, meanings, and examples.", search: "Search characters, Pinyin, or meanings...", newWord: "New word", meaning: "Meaning", topic: "Topic", example: "Example", save: "Save word", empty: "No words yet. Add your first word!", saved: "New word saved.", deleted: "Word deleted." },
+    review: { title: "Smart review", description: "Build lasting memory with an adaptive review schedule.", allDone: "You have completed today's review.", showAnswer: "Show answer", remembered: "Remembered", again: "Learn again" },
+    hsk: { title: "HSK Roadmap", description: "Track your vocabulary at each HSK level." },
+    speaking: { title: "Speaking room", description: "Listen, record, and evaluate your tones.", prompt: "Practice sentence", listen: "Listen", record: "Record" },
+    data: { title: "Data", description: "Your data stays on this device. Back it up regularly.", export: "Export backup", exportDescription: "Includes vocabulary, writing, and settings.", download: "Download JSON", restore: "Restore data", restoreDescription: "Import a backup; existing data is merged safely.", chooseFile: "Choose file", storage: "On-device storage", storageDescription: "A separate storage layer ready for future cloud sync.", restored: "Data restored and merged successfully." },
+    writing: { pageTitle: "Writing Vault — StudyNova", subtitle: "Your personal Chinese writing vault", back: "Back", description: "Write, save versions, and record feedback for each essay.", newEssay: "New essay", essays: "Essays", characters: "Characters written", topics: "Topics", feedback: "Feedback", recent: "Recent essays", search: "Search essays...", selectHint: "Select an essay or create a new one.", untitled: "Untitled", title: "Title", topic: "Topic", content: "Chinese content", notes: "Notes / feedback", save: "Save essay", remove: "Delete essay", saved: "Essay saved.", empty: "No essays yet." }
   }
 };
 
 window.StudyNovaI18n = {
   normalize(locale) {
-    return locale === "zh" || locale === "zh-CN" ? "zh-CN" : "vi";
+    return locale === "zh" || locale === "zh-CN" ? "zh" : locale === "en" ? "en" : "vi";
   },
   get(locale, path) {
-    return path.split(".").reduce(
+    const read = source => path.split(".").reduce(
       (value, key) => value && value[key],
-      window.STUDYNOVA_TRANSLATIONS[this.normalize(locale)]
-    ) || path;
+      source
+    );
+    return read(window.STUDYNOVA_TRANSLATIONS[this.normalize(locale)])
+      ?? read(window.STUDYNOVA_TRANSLATIONS.vi)
+      ?? path;
   }
 };
