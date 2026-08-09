@@ -21,6 +21,7 @@ window.STUDYNOVA_TRANSLATIONS = {
       stopRecording: "Dừng ghi âm",
       microphoneUnavailable: "Không thể sử dụng micrô.",
       invalidBackup: "Tệp sao lưu không hợp lệ."
+      ,installApp: "Cài ứng dụng", appInstalled: "Đã cài StudyNova Chinese", installInstructions: "Để cài ứng dụng: nhấn nút Chia sẻ, sau đó chọn “Thêm vào Màn hình chính”.", installTitle: "Cài StudyNova Chinese", menu: "Menu"
     },
     home: {
       streak: "Chuỗi học tập",
@@ -109,7 +110,7 @@ window.STUDYNOVA_TRANSLATIONS = {
       empty: "Chưa có bài viết nào."
     }
   },
-  "zh-CN": {
+  zh: {
     brandTagline: "中文学习",
     nav: {
       overview: "总览",
@@ -130,6 +131,7 @@ window.STUDYNOVA_TRANSLATIONS = {
       stopRecording: "停止录音",
       microphoneUnavailable: "无法使用麦克风。",
       invalidBackup: "备份文件无效。"
+      ,installApp: "安装应用", appInstalled: "StudyNova Chinese 已安装", installInstructions: "安装应用：点击“分享”，然后选择“添加到主屏幕”。", installTitle: "安装 StudyNova Chinese", menu: "菜单"
     },
     home: {
       streak: "连续学习",
@@ -217,17 +219,32 @@ window.STUDYNOVA_TRANSLATIONS = {
       saved: "文章已保存。",
       empty: "还没有文章。"
     }
+  },
+  en: {
+    brandTagline: "LEARN CHINESE",
+    nav: { overview: "Overview", vocabulary: "Vocabulary", review: "Review", hskPath: "HSK Roadmap", speaking: "Speaking", writingVault: "Writing Vault", data: "Data" },
+    common: { days: "days", language: "Language", theme: "Theme", changeTheme: "Change theme", close: "Close", delete: "Delete", stopRecording: "Stop recording", microphoneUnavailable: "The microphone is unavailable.", invalidBackup: "This backup file is invalid.", installApp: "Install app", appInstalled: "StudyNova Chinese installed", installInstructions: "To install the app, tap Share, then select “Add to Home Screen”.", installTitle: "Install StudyNova Chinese", menu: "Menu" },
+    home: { streak: "Learning streak", localFirst: "Learn consistently and progress at your own pace.", welcome: "WELCOME BACK", learnChinese: "Master Chinese", oneStep: "one step every day.", heroText: "From Chinese characters and tones to natural conversation — all in one private learning space.", addWord: "Add new words", reviewNow: "Review now", words: "Words learned", personalVault: "Personal vocabulary", due: "Due today", spaced: "Spaced repetition", keepGoing: "Keep going", mastery: "Mastery", hskRange: "HSK 1–9", spaces: "Learning spaces" },
+    vocabulary: { title: "Vocabulary", description: "Save your own Chinese characters, Pinyin, meanings, and examples.", search: "Search characters, Pinyin, or meanings...", newWord: "New word", meaning: "Meaning", topic: "Topic", example: "Example", save: "Save word", empty: "No words yet. Add your first word!", saved: "New word saved.", deleted: "Word deleted." },
+    review: { title: "Smart review", description: "Build lasting memory with an adaptive review schedule.", allDone: "You have completed today's review.", showAnswer: "Show answer", remembered: "Remembered", again: "Learn again" },
+    hsk: { title: "HSK Roadmap", description: "Track your vocabulary at each HSK level." },
+    speaking: { title: "Speaking room", description: "Listen, record, and evaluate your tones.", prompt: "Practice sentence", listen: "Listen", record: "Record" },
+    data: { title: "Data", description: "Your data stays on this device. Back it up regularly.", export: "Export backup", exportDescription: "Includes vocabulary, writing, and settings.", download: "Download JSON", restore: "Restore data", restoreDescription: "Import a backup; existing data is merged safely.", chooseFile: "Choose file", storage: "On-device storage", storageDescription: "A separate storage layer ready for future cloud sync.", restored: "Data restored and merged successfully." },
+    writing: { pageTitle: "Writing Vault — StudyNova", subtitle: "Your personal Chinese writing vault", back: "Back", description: "Write, save versions, and record feedback for each essay.", newEssay: "New essay", essays: "Essays", characters: "Characters written", topics: "Topics", feedback: "Feedback", recent: "Recent essays", search: "Search essays...", selectHint: "Select an essay or create a new one.", untitled: "Untitled", title: "Title", topic: "Topic", content: "Chinese content", notes: "Notes / feedback", save: "Save essay", remove: "Delete essay", saved: "Essay saved.", empty: "No essays yet." }
   }
 };
 
 window.StudyNovaI18n = {
   normalize(locale) {
-    return locale === "zh" || locale === "zh-CN" ? "zh-CN" : "vi";
+    return locale === "zh" || locale === "zh-CN" ? "zh" : locale === "en" ? "en" : "vi";
   },
   get(locale, path) {
-    return path.split(".").reduce(
+    const read = source => path.split(".").reduce(
       (value, key) => value && value[key],
-      window.STUDYNOVA_TRANSLATIONS[this.normalize(locale)]
-    ) || path;
+      source
+    );
+    return read(window.STUDYNOVA_TRANSLATIONS[this.normalize(locale)])
+      ?? read(window.STUDYNOVA_TRANSLATIONS.vi)
+      ?? path;
   }
 };
