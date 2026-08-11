@@ -1,12 +1,12 @@
-const CACHE = 'studynova-chinese-v7-quick-import';
+const CACHE = 'studynova-chinese-v8-review';
 const PRECACHE = [
   './', './index.html', './chinesemaster_writing_vault.html', './offline.html',
-  './assets/styles.css', './assets/app.js', './assets/quick-import.js',
+  './assets/styles.css', './assets/app.js', './assets/review.js', './assets/quick-import.js',
   './assets/i18n.js', './assets/pwa.js', './manifest.webmanifest',
   './novalab-chinese-4-icons/icon-192.png', './novalab-chinese-4-icons/icon-512.png',
   './novalab-chinese-4-icons/icon-maskable-512.png'
 ];
-const UPDATE_FIRST = new Set(['/assets/app.js', '/assets/styles.css', '/assets/quick-import.js']);
+const UPDATE_FIRST = new Set(['/assets/app.js', '/assets/review.js', '/assets/styles.css', '/assets/quick-import.js']);
 self.addEventListener('install', event => event.waitUntil(
   caches.open(CACHE).then(cache => cache.addAll(PRECACHE)).then(() => self.skipWaiting())
 ));
