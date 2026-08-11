@@ -16,3 +16,12 @@ test('blanking only replaces reviewed word and safely handles missing data',()=>
 test('missing translation and HSK do not affect core grading',()=>{assert.equal(R.gradeInput('中国',{...words[2],translation:'',hsk:null},'hanzi'),true)});
 test('schedule updates level both directions',()=>{const w={level:2};R.updateSchedule(w,true,0);assert.equal(w.level,3);R.updateSchedule(w,false,0);assert.equal(w.level,2)});
 test('streak only increments once on the same day',()=>{const s={streak:2,lastStudy:''};R.applyStudyDay(s,'2026-08-11');R.applyStudyDay(s,'2026-08-11');assert.deepEqual(s,{streak:3,lastStudy:'2026-08-11'})});
+const valid=(id,extra={})=>({id,hanzi:`词${id}`,pinyin:'cí',meaning:'nghĩa',...extra});
+test('empty vocabulary has no review selections',()=>assert.deepEqual(R.selectWords([],'all'),[]));
+test('ten new words with nextReview zero are immediately due',()=>{const list=Array.from({length:10},(_,i)=>valid(String(i),{nextReview:0}));assert.equal(R.selectWords(list,'due',100).length,10)});
+test('future words are not due but remain available in all',()=>{const list=[valid('1',{nextReview:200})];assert.equal(R.selectWords(list,'due',100).length,0);assert.equal(R.selectWords(list,'all',100).length,1)});
+test('HSK filter compares numeric levels and can have no matches',()=>{const list=[valid('1',{hsk:2})];assert.equal(R.selectWords(list,'hsk:1').length,0);assert.equal(R.selectWords(list,'hsk:2').length,1)});
+test('removed topic filter resets to due and topic matching is normalized',()=>{const list=[valid('1',{topic:' Du lịch ',nextReview:0})];assert.equal(R.normalizeFilter('topic:missing',list),'due');assert.equal(R.selectWords(list,'topic:DU LỊCH').length,1)});
+test('empty, deleted-id, and pre-import sessions are stale',()=>{const list=[valid('1')],version=R.wordsVersion(list);assert.equal(R.sessionIsValid({queue:[],wordsVersion:version},list),false);assert.equal(R.sessionIsValid({queue:['gone'],wordsVersion:version},list),false);assert.equal(R.sessionIsValid({queue:['1'],wordsVersion:version},[...list,valid('2')]),false)});
+test('example and translation are optional review fields',()=>assert.equal(R.selectWords([valid('1',{example:'',translation:''})],'all').length,1));
+test('all three modes share the same selected vocabulary core',()=>{const list=[valid('1'),valid('2')];for(const mode of ['choice','fill','listen'])assert.deepEqual(R.selectWords(list,'all').map(w=>w.id),['1','2'],mode)});
