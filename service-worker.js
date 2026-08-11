@@ -1,4 +1,4 @@
-const CACHE = 'studynova-chinese-v8-review';
+const CACHE = 'studynova-chinese-v9-review';
 const PRECACHE = [
   './', './index.html', './chinesemaster_writing_vault.html', './offline.html',
   './assets/styles.css', './assets/app.js', './assets/review.js', './assets/quick-import.js',
